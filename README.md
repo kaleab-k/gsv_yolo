@@ -19,12 +19,19 @@ Activate your environment
 
     source activate yourenvname
 
+comment [pcl]: conda activate yourenvname???
+
 Install packages
 
     conda install tensorflow (or conda install tensorflow-gpu)
     pip install tensornets 
     conda install opencv
     conda install -c conda-forge numpy 
+
+comments [pcl]: 
+- add installation of cython? didn't work otherwise
+- Had problems with numpy (ValueError: numpy.ufunc size changed, may indicate binary incompatibility) Solved them installing numpy 1.16.1. Investigate this. It has relation with incompatibilities with cython
+- Add installation of pandas
 
 # Compiling the program
 
@@ -35,6 +42,21 @@ Set the directory variable to the path where the images and the associated JSON 
 and execute the script
     
     python yolov3.py
+    
+ 
+comments [pcl]: 
+
+- I get an error when showing images: cv2.error: OpenCV(3.4.2) /tmp/build/80754af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:632: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
+
+- Visualization errors may have relationship with virtual machine (not sure). Anyway, enable a visualization flag to show/not show detections
+
+- change code to add directory through command line option, so code does not need to be modified
+
+- add folders with a small gsv database (a few images) so code can be tested, even without having used the database extractor
+
+- Enable the visualization flag also through command line option
+
+
     
 **Database Structure:**
 
