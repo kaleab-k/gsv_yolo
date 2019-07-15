@@ -1,5 +1,9 @@
 ## Google Street View (GSV) Object Detection 
 YOLOv3 based object detection on Google Street View images extracted via https://github.com/pcarballeira/gsv_database_creator
+
+comment [pcl]: 
+- if possible, separate the code in modules/functions. Input (read from GSV database), Process (may be changed for something else), Output (output detections in a JSON format that should be common even if the detector is changed)
+
 # Requirements
 - Python distro (*Conda* recommended: https://www.anaconda.com/distribution)
 - Tensorflow 
