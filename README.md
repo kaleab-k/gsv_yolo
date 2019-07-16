@@ -36,6 +36,7 @@ comments [pcl]:
 - add installation of cython? didn't work otherwise
 - Had problems with numpy (ValueError: numpy.ufunc size changed, may indicate binary incompatibility) Solved them installing numpy 1.16.1. Investigate this. It has relation with incompatibilities with cython
 - Add installation of pandas
+- Use conda installation of possible, for numpy for example
 
 # Compiling the program
 
