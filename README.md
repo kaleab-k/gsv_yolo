@@ -61,17 +61,15 @@ comments [pcl]:
 
 - Enable the visualization flag also through command line option
 
+# Structure of detections:
 
-    
-**Database Structure:**
+Detections are stored in a JSON file with the same name of the images folder, where the **_jpegs_** suffix is substituted by **_yolo_**. For instance, if the images folder name is **M:DRIVING_S:608x608-jpegs**, the JSON file name will be **M:DRIVING_S:608x608_yolo.json**. The JSON file contains a root _JSON Array_ with a _JSON Object_ for each detected bounding box, with the following key-value pairs: 
 
-Executing the script will generate a JSON with detection details. For every jpeg folders, it will create a JSON file with the same name to the **jpegs** folders except the **_jpegs** rather appending **_yolo** under a folder named **yolov3**. For instance, if the jpegs folder name is **M:DRIVING_S:608x608-jpegs**, the JSON file name will be *-**M:DRIVING_S:608x608_yolo.json**. In the JSON file, we will have a root _JSON Array_ containing _JSON Object_ for each bounding box detection store the details as a key-value pair. These details are:
-
-- **_seqNumber:_** &nbsp; an integer value of a number between 00000 and 99999 that will identify the image.
-- **_x:_**  &nbsp;         the top left starting x-position of the detected bounding box. 
-- **_y:_**  &nbsp;           the top left starting y-position of the detected bounding box. 
-- **_width:_** &nbsp;      the width of the detected bounding box. 
-- **_height:_** &nbsp;     the height of the detected bounding box. 
-- **_class:_**  &nbsp;     the class classification of the detected bounding box. 
+- **_seqNumber:_** &nbsp; an integer value of a number between 00000 and 99999 that identifies the image.
+- **_x:_**  &nbsp;         the x-position of the bounding box top left corner. 
+- **_y:_**  &nbsp;         the y-position of the bounding box top left corner. 
+- **_width:_** &nbsp;      the bounding box width. 
+- **_height:_** &nbsp;     the bounding box height. 
+- **_class:_**  &nbsp;     the class of the detected objec. 
 - **_confidence:_** &nbsp;  the detection confidence. 
 
