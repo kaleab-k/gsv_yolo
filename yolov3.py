@@ -43,13 +43,15 @@ parser = argparse.ArgumentParser()
 
 # add long and short argument
 parser.add_argument("--dir", "-d", help="set dataset directory")
+parser.add_argument("--debug", "-v", help="set debug_flag to visualize results")
 
 # read arguments from the command line
 args = parser.parse_args()
-# check for --dir
+# check for --dir and --debug
 if args.dir:
     dataset_dir = args.dir
-
+if args.debug:
+    debug_flag = True
 ## Fetch all jpegs directories inside the route directory
 jpeg_dirs = [(pos_dir).replace("-jpegs", "") for pos_dir in os.listdir(dataset_dir) if pos_dir.endswith('-jpegs')]
 
