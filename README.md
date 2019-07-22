@@ -3,12 +3,15 @@ YOLOv3 based object detection on Google Street View images extracted via https:/
 
 comment [pcl]: 
 - if possible, separate the code in modules/functions. Input (read from GSV database), Process (may be changed for something else), Output (output detections in a JSON format that should be common even if the detector is changed)
+  
 
 # Requirements
 - Python distro (*Conda* recommended: https://www.anaconda.com/distribution)
 - Tensorflow 
 - OpenCV
 - Numpy
+- Pandas
+- Cython
 
 # Dependencies
 This code uses TensorNet library (https://github.com/taehoonlee/tensornets)
@@ -21,7 +24,7 @@ Create your virtual environment
   
 Activate your environment 
 
-    source activate yourenvname
+    source (or conda) activate yourenvname
 
 comment [pcl]: conda activate yourenvname???
 
@@ -30,7 +33,9 @@ Install packages
     conda install tensorflow (or conda install tensorflow-gpu)
     pip install tensornets 
     conda install opencv
-    conda install -c conda-forge numpy 
+    conda install -c conda-forge numpy=1.16.1
+    conda install cython
+    conda install pandas
 
 comments [pcl]: 
 - add installation of cython? didn't work otherwise
@@ -40,15 +45,10 @@ comments [pcl]:
 
 # Compiling the program
 
-Set the directory variable to the path where the images and the associated JSON is stored.
+Set the directory variable to the path where the images and the associated JSON is stored using the _'dir'_ command line argument and execute the script. You can also set debug_flag using _'debug'_ arg.
 
-    dataset_dir = "..."
+    python yolov3.py --dir "the/path/to/route/directory" (--debug)
     
-and execute the script
-    
-    python yolov3.py
-    
- 
 comments [pcl]: 
 
 - I get an error when showing images: cv2.error: OpenCV(3.4.2) /tmp/build/80754af9/opencv-suite_1535558553474/work/modules/highgui/src/window.cpp:632: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
